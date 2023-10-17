@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from "next/router";
 import ReadTest from "./components/ReadTest";
 import { usePathname } from 'next/navigation';
 
