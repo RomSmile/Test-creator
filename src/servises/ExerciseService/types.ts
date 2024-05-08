@@ -1,4 +1,4 @@
-import { IAnswer, IExercise, IQuestion } from "@/types";
+import { IAnswer, IQuestion } from "@/types";
 
 export type IAnswerCreate = Omit<
   IAnswer,

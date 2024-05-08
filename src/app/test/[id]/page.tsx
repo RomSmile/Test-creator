@@ -1,7 +1,7 @@
-import ReadTest from "./components/ReadTest";
+// import ReadTest from "./components/ReadTest";
 
-export default function Test({ params }) {
-	
-	return null;
+// props = { params }
+export default function Test() {
+  return null;
   // return <ReadTest id={params.id} />;
 }
