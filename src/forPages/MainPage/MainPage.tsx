@@ -22,9 +22,6 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
     if (newFilter.length) {
       replace(
         replaceUrl({ page, ...(newFilter.length && { filter: newFilter }) }),
-        {
-          scroll: false,
-        },
       );
       setPage(1);
     }
@@ -60,9 +57,7 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
       e.preventDefault();
       return;
     }
-    replace(replaceUrl({ page: page + 1, ...(filter.length && { filter }) }), {
-      scroll: false,
-    });
+    replace(replaceUrl({ page: page + 1, ...(filter.length && { filter }) }));
     setPage(page + 1);
   };
 
@@ -71,9 +66,7 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
       e.preventDefault();
       return;
     }
-    replace(replaceUrl({ page: page - 1, ...(filter.length && { filter }) }), {
-      scroll: false,
-    });
+    replace(replaceUrl({ page: page - 1, ...(filter.length && { filter }) }));
     setPage(page - 1);
   };
 
@@ -84,9 +77,6 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
   const onSetPageNumber = (pageNumber: number) => () => {
     replace(
       replaceUrl({ page: pageNumber, ...(filter.length && { filter }) }),
-      {
-        scroll: false,
-      },
     );
     setPage(pageNumber);
   };
