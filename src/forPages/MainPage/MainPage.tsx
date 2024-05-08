@@ -75,9 +75,7 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
   };
 
   const onSetPageNumber = (pageNumber: number) => () => {
-    replace(
-      replaceUrl({ page: pageNumber, ...(filter.length && { filter }) }),
-    );
+    replace(replaceUrl({ page: pageNumber, ...(filter.length && { filter }) }));
     setPage(pageNumber);
   };
 
