@@ -8,7 +8,7 @@ const SearchExercise: FC<ISearchExercise> = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       className="search"
-      placeholder="Enter the user login..."
+      placeholder="Enter the test title..."
     />
   );
 };
