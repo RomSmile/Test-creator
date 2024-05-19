@@ -14,3 +14,15 @@ export interface ICreateExerciseParams {
   title: string;
   questions: IQuestionCreate[];
 }
+
+export interface IAnswersCheckResponse {
+  id: string,
+  isCorrectAnswer: boolean,
+  questionId: string,
+  exerciseId: string,
+}
+
+export interface ICheckResponse {
+  answers: IAnswersCheckResponse[] | null;
+  mark: number | null;
+}

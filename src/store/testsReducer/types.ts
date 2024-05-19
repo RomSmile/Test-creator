@@ -7,7 +7,7 @@ export interface IGetTestsResponse {
   lastPage: number;
 }
 
-export interface ITestReducer {
+export interface ITestsReducer {
   tests: IExerciseListItem[] | null;
   lastPage: number | null;
   error: string;

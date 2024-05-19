@@ -2,7 +2,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useAppDispatch, UseAppSelector } from "@/hooks/redux";
-import { getTests } from "@/store/testReducer/testsActions";
+import { getTests } from "@/store/testsReducer/testsActions";
 import { useRouter } from "next/navigation";
 import { replaceUrl } from "@/helpers";
 import { Loader } from "@/components";
@@ -27,7 +27,7 @@ const MainPage: FC<{ pageNumber: number }> = ({ pageNumber }) => {
     }
   });
   const { tests, lastPage, loading, error } = UseAppSelector(
-    (state) => state.testReducer,
+    (state) => state.testsReducer,
   );
 
   useEffect(() => {

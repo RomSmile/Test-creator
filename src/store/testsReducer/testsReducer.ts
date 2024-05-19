@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getTests } from "@/store/testReducer/testsActions";
+import { getTests } from "@/store/testsReducer/testsActions";
 import { IInfoResponse } from "@/servises/types";
-import { IGetTestsResponse, ITestReducer } from "@/store/testReducer/types";
+import { IGetTestsResponse, ITestsReducer } from "@/store/testsReducer/types";
 
-const initialState: ITestReducer = {
+const initialState: ITestsReducer = {
   tests: null,
   lastPage: null,
   loading: false,
   error: "",
 };
 
-export const TestSlice = createSlice({
+export const TestsSlice = createSlice({
   name: "AlertStore",
   initialState,
   reducers: {},
@@ -18,7 +18,7 @@ export const TestSlice = createSlice({
     builder.addCase(
       getTests.fulfilled,
       (
-        state: ITestReducer,
+        state: ITestsReducer,
         action: PayloadAction<IGetTestsResponse | IInfoResponse>,
       ) => {
         const { lastPage, items } = action.payload as IGetTestsResponse;
@@ -28,13 +28,13 @@ export const TestSlice = createSlice({
         state.loading = false;
       },
     );
-    builder.addCase(getTests.pending, (state: ITestReducer) => {
+    builder.addCase(getTests.pending, (state: ITestsReducer) => {
       state.loading = true;
     });
-    builder.addCase(getTests.rejected, (state: ITestReducer, action) => {
+    builder.addCase(getTests.rejected, (state: ITestsReducer, action) => {
       state.error = action.payload as string;
     });
   },
 });
 
-export default TestSlice.reducer;
+export default TestsSlice.reducer;

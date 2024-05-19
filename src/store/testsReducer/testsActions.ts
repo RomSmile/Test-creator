@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IGetTestsResponse } from "@/store/testReducer/types";
+import { IGetTestsResponse } from "@/store/testsReducer/types";
 export const getTests = createAsyncThunk<
   IGetTestsResponse,
   { page: number; filter?: string },

@@ -37,7 +37,7 @@ const QuestionRead: FC<IQuestionRead> = ({
                     style={{
                       color: isTestFinished
                         ? answer.isSelected
-                          ? answer.isCorrect
+                          ? answer.isCorrectAnswer
                             ? "green"
                             : "red"
                           : "#fff"

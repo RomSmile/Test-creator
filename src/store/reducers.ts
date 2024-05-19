@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import testReducer from "./testReducer/testReducer";
+import testsReducer from "./testsReducer/testsReducer";
 
 export const allReducers = combineReducers({
-  testReducer,
+  testsReducer,
 });

@@ -1,12 +1,17 @@
+import { IExerciseRead } from "@/types";
+
 export interface IReadTest {
-  id: string;
+  test: IExerciseRead;
 }
 
 export interface IValidateAnswerItem {
+  id: string;
+  questionId: string;
+  exerciseId: string;
   isSelected: boolean;
   answerTitle: string;
   isError: boolean;
-  isCorrect: boolean;
+  isCorrectAnswer: boolean | null;
 }
 
 export interface IValidateArrayItem {
