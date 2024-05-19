@@ -88,7 +88,7 @@ const ReadTest: FC<IReadTest> = ({ test }) => {
 
     const newValidateArray = [...validateArray].map((question) => {
       const newQuestion = { ...question };
-      newQuestion.answers = newQuestion.answers.map((answer, answerIndex) => {
+      newQuestion.answers = newQuestion.answers.map((answer) => {
         const responseAnswer = (
           response.answers as IAnswersCheckResponse[]
         ).find((responseAnswer) => answer.id === responseAnswer.id);
