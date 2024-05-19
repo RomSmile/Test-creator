@@ -16,10 +16,10 @@ export interface ICreateExerciseParams {
 }
 
 export interface IAnswersCheckResponse {
-  id: string,
-  isCorrectAnswer: boolean,
-  questionId: string,
-  exerciseId: string,
+  id: string;
+  isCorrectAnswer: boolean;
+  questionId: string;
+  exerciseId: string;
 }
 
 export interface ICheckResponse {

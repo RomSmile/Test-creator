@@ -1,5 +1,8 @@
 import axios, { AxiosResponse } from "axios";
-import { ICheckResponse, ICreateExerciseParams } from "@/servises/ExerciseService/types";
+import {
+  ICheckResponse,
+  ICreateExerciseParams,
+} from "@/servises/ExerciseService/types";
 import { IInfoResponse } from "@/servises/types";
 import { IAnswerCheck } from "@/types";
 
@@ -34,20 +37,26 @@ export const createExercise = async (
   }
 };
 
-export const checkExercise = async (answers: IAnswerCheck[], exerciseId: string): Promise<ICheckResponse> => {
+export const checkExercise = async (
+  answers: IAnswerCheck[],
+  exerciseId: string,
+): Promise<ICheckResponse> => {
   try {
-    const response = await axios.post(`${process.env.BASE_API_URL}/exercise/check`, {
-      answers,
-      exerciseId
-    })
-  
-    return response.data
+    const response = await axios.post(
+      `${process.env.BASE_API_URL}/exercise/check`,
+      {
+        answers,
+        exerciseId,
+      },
+    );
+
+    return response.data;
   } catch (e) {
     const { data } = e.response;
-    alert(data.message)
+    alert(data.message);
     return {
       answers: null,
-      mark: null
-    }
+      mark: null,
+    };
   }
-}
+};

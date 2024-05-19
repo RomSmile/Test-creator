@@ -10,7 +10,7 @@ import { IAnswersCheckResponse } from "@/servises/ExerciseService/types";
 
 const ReadTest: FC<IReadTest> = ({ test }) => {
   const [isTestFinished, setIsTestFinished] = useState<boolean>(false);
-  const [ mark, setMark ] = useState<number | null>(null);
+  const [mark, setMark] = useState<number | null>(null);
 
   const [validateArray, setValidateArray] = useState<IValidateArrayItem[]>(
     test.questions.map((question) => {
@@ -69,36 +69,41 @@ const ReadTest: FC<IReadTest> = ({ test }) => {
       validateArray.reduce((acc, validateItem) => {
         return [
           ...acc,
-          ...validateItem.answers.map(
-            ({isSelected, id, questionId, exerciseId}) => ({isSelected, id, questionId, exerciseId})
-          ).filter((answer) => answer.isSelected)
-        ]
+          ...validateItem.answers
+            .map(({ isSelected, id, questionId, exerciseId }) => ({
+              isSelected,
+              id,
+              questionId,
+              exerciseId,
+            }))
+            .filter((answer) => answer.isSelected),
+        ];
       }, []),
-      test.id
-    )
+      test.id,
+    );
 
     if (response.answers === null || response.mark === null) {
       return;
     }
 
-    const newValidateArray = [...validateArray].map(
-      (question) => {
-        const newQuestion = { ...question };
-        newQuestion.answers = newQuestion.answers.map((answer, answerIndex) => {
-          const responseAnswer = (response.answers as IAnswersCheckResponse[]).find((responseAnswer) => answer.id === responseAnswer.id);
-          if (responseAnswer) {
-            return {
-              ...answer,
-              ...responseAnswer
-            }
-          }
-          return answer;
-        });
-        return newQuestion;
-      },
-    );
+    const newValidateArray = [...validateArray].map((question) => {
+      const newQuestion = { ...question };
+      newQuestion.answers = newQuestion.answers.map((answer, answerIndex) => {
+        const responseAnswer = (
+          response.answers as IAnswersCheckResponse[]
+        ).find((responseAnswer) => answer.id === responseAnswer.id);
+        if (responseAnswer) {
+          return {
+            ...answer,
+            ...responseAnswer,
+          };
+        }
+        return answer;
+      });
+      return newQuestion;
+    });
 
-    setMark(response.mark)
+    setMark(response.mark);
     setValidateArray([...newValidateArray]);
     setIsTestFinished(true);
   };

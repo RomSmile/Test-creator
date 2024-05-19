@@ -20,13 +20,13 @@ export interface IAnswer {
   isCorrectAnswer: boolean;
 }
 
-export interface IAnswerRead extends Omit<IAnswer, 'isCorrect'> {}
+export interface IAnswerRead extends Omit<IAnswer, "isCorrect"> {}
 
-export interface IQuestionRead extends Omit<IQuestion, 'answers'> {
+export interface IQuestionRead extends Omit<IQuestion, "answers"> {
   answers: IAnswerRead[];
 }
 
-export interface IExerciseRead extends Omit<IExercise, 'questions'> {
+export interface IExerciseRead extends Omit<IExercise, "questions"> {
   questions: IQuestionRead[];
 }
 
