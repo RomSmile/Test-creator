@@ -12,6 +12,8 @@ const ReadTest: FC<IReadTest> = ({ test }) => {
   const [isTestFinished, setIsTestFinished] = useState<boolean>(false);
   const [mark, setMark] = useState<number | null>(null);
 
+  console.log(test)
+
   const [validateArray, setValidateArray] = useState<IValidateArrayItem[]>(
     test.questions.map((question) => {
       return {
